@@ -1,0 +1,33 @@
+# Note: All dates provided by this plugin are in PST.
+staffNotificationSound: false
+removePluginPrefixFromChatMessages: false
+
+# Download the database schema compatible with this plugin at insertwebsitehere.com
+database:
+
+  enabled: false
+
+  # MySQL is the only option for now. Support for other DBs in the future.
+  system: "MySQL"
+
+  # Host name. Example: db.example.com
+  host: ""
+
+  # Database name (mydatabase is the default name from the compatible schema).
+  database-name: "mydatabase"
+
+  # 3306 is the MySQL default port.
+  port: 3306
+
+  # Your MySQL username.
+  username: ""
+
+  # Your MySQL password.
+  password: ""
+
+discord:
+
+  enabled: false
+
+  # The webhook url (Example: "https://discord.com/api/webhooks/example/example").
+  webhook-url: ""

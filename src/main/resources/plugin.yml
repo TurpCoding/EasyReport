@@ -1,0 +1,10 @@
+name: EasyReport
+main: io.github.turpcoding.easyreport.EasyReport
+description: Turp's Easy & Simple Report Plugin (EasyReport) is an easy and simple way to report players. This plugin works without any setup necessary in the config file and all additional features are disabled by default.
+version: 1.0
+author: Turp
+api-version: 1.18
+
+commands:
+  report:
+    usage: "Usage: /report <player> <reason>"
