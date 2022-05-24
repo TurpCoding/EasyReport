@@ -65,6 +65,12 @@ public class ReportCommand implements CommandExecutor {
 
                 mainClass.reloadConfig();
                 mainClass.reloadCustomConfig();
+
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                        mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
+                                ?  "&aTurp's Easy & Simple Report Plugin (EasyReport) reloaded."
+                                : "&4&l[EasyReport]&r &aTurp's Easy & Simple Report Plugin (EasyReport) reloaded."));
+                return true;
             }
 
             // /REPORT ADDSTAFF <PLAYER>
