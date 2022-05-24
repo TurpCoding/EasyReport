@@ -276,6 +276,7 @@ public class ReportCommand implements CommandExecutor {
                                 ? "&cThe player you tried to report either doesn't exist or isn't online."
                                 : "&4&l[EasyReport] &cThe player you tried to report either doesn't exist or isn't online."));
             } else {
+                if (!permissionCheck(player, "report.report")) {return true;}
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                         mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
                                 ? "&cUsage: /report <player> <reason>"
