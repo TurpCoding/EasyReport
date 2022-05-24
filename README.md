@@ -1,10 +1,10 @@
 # EasyReport
 Turp's Easy &amp; Simple Report Plugin (EasyReport) is a plugin made to easily report players with the /report &lt;player> &lt;reason> command. It also contains a bunch of other useful optional features like database and Discord webhook integration.
 
-This is the official repository for EasyReport.
-Feel free to contribute if you like doing so! :)
+**This is the official repository for the EasyReport plugin.**
+Feel free to contribute if you feel like doing so! :)
 
-Future updates:
+## Future updates:
 - The staff can open a private chat with a player about their report up to 30 seconds after they receive the report alert.
 After that the player gets an automatically message explaining to them that a staff member just opened a private chat with
 them about their latest report and if they want to leave they can type /report leave.
