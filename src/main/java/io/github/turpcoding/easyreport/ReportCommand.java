@@ -61,7 +61,7 @@ public class ReportCommand implements CommandExecutor {
             // /REPORT RELOAD
 
             if (args[0].equalsIgnoreCase("reload") && argsNumber == 1) {
-                if (!permissionCheck(player, "report.help")) {return true;}
+                if (!permissionCheck(player, "report.reload")) {return true;}
 
                 mainClass.reloadConfig();
                 mainClass.reloadCustomConfig();
@@ -85,8 +85,8 @@ public class ReportCommand implements CommandExecutor {
 
                         player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                                 mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
-                                        ?  "&cError: Player already on the staff list."
-                                        : "&4&l[EasyReport]&r &cError: Player already on the staff list."));
+                                        ?  "&cPlayer already on the staff list."
+                                        : "&4&l[EasyReport]&r &cPlayer already on the staff list."));
                         return true;
                     }
                 }
@@ -135,8 +135,8 @@ public class ReportCommand implements CommandExecutor {
                 }
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                         mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
-                                ? "&cError: Player not on the staff list."
-                                : "&4&l[EasyReport]&r &cError: Player not on the staff list."));
+                                ? "&cPlayer not on the staff list."
+                                : "&4&l[EasyReport]&r &cPlayer not on the staff list."));
                 return true;
             }
 
@@ -262,7 +262,7 @@ public class ReportCommand implements CommandExecutor {
                     return true;
                 }
             } else if (reportedPlayer != null && argsNumber == 2 && reportedPlayer.equals(player)) {
-                if (!permissionCheck(player, "report.records")) {return true;}
+                if (!permissionCheck(player, "report.report")) {return true;}
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                         mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
                                 ? "&cYou cannot report yourself!"
@@ -270,12 +270,17 @@ public class ReportCommand implements CommandExecutor {
                 return true;
 
             } else if (reportedPlayer == null) {
-                if (!permissionCheck(player, "report.records")) {return true;}
+                if (!permissionCheck(player, "report.report")) {return true;}
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                         mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
                                 ? "&cThe player you tried to report either doesn't exist or isn't online."
                                 : "&4&l[EasyReport] &cThe player you tried to report either doesn't exist or isn't online."));
-            } else {return false;}
+            } else {
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                        mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
+                                ? "&cUsage: /report <player> <reason>"
+                                : "&4&l[EasyReport]&r &cUsage: /report <player> <reason>"));
+            }
         } catch (Exception e) {
             try {
                 Bukkit.getLogger().log(Level.WARNING, "A general exception just got caught.");
