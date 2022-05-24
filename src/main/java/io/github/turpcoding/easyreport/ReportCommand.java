@@ -174,7 +174,7 @@ public class ReportCommand implements CommandExecutor {
                     return true;
 
                 } else if (args[0].equalsIgnoreCase("records") && argsNumber == 2 && !(mainClass.getConfig().getBoolean("database.enabled"))) {
-
+                    if (!permissionCheck(player, "report.records")) {return true;}
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                             mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
                             ? "&cYou have to first set up a database and configure 'config.yml' accordingly in order to use this feature."
@@ -182,6 +182,7 @@ public class ReportCommand implements CommandExecutor {
                     return true;
 
                 } else if (args[0].equalsIgnoreCase("records") && argsNumber == 1) {
+                    if (!permissionCheck(player, "report.records")) {return true;}
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                         mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
                                 ? "&cUsage: /report records <player>"
@@ -260,8 +261,8 @@ public class ReportCommand implements CommandExecutor {
                     e.printStackTrace();
                     return true;
                 }
-            } else if (reportedPlayer != null && argsNumber == 2 && reportedPlayer.equals(player))
-            {
+            } else if (reportedPlayer != null && argsNumber == 2 && reportedPlayer.equals(player)) {
+                if (!permissionCheck(player, "report.records")) {return true;}
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                         mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
                                 ? "&cYou cannot report yourself!"
@@ -269,6 +270,7 @@ public class ReportCommand implements CommandExecutor {
                 return true;
 
             } else if (reportedPlayer == null) {
+                if (!permissionCheck(player, "report.records")) {return true;}
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                         mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
                                 ? "&cThe player you tried to report either doesn't exist or isn't online."
