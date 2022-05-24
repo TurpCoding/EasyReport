@@ -136,7 +136,7 @@ public class ReportCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                         mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
                                 ? "&cError: Player not on the staff list."
-                                : "&4&l[EasyReport]&r &cError: Player not on the list."));
+                                : "&4&l[EasyReport]&r &cError: Player not on the staff list."));
                 return true;
             }
 
@@ -181,6 +181,12 @@ public class ReportCommand implements CommandExecutor {
                             : "&4&l[EasyReport]&r &cYou have to first set up a database and configure 'config.yml' accordingly in order to use this feature."));
                     return true;
 
+                } else if (args[0].equalsIgnoreCase("records") && argsNumber == 1) {
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                        mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
+                                ? "&cUsage: /report records <player>"
+                                : "&4&l[EasyReport]&r &cUsage: /report records <player>"));
+                    return true;
                 }
             } catch (Exception e) {
                 Bukkit.getLogger().log(Level.WARNING, "A general exception while running /report records just got caught.");
