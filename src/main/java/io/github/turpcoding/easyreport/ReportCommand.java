@@ -269,7 +269,7 @@ public class ReportCommand implements CommandExecutor {
                                 : "&4&l[EasyReport] &cYou cannot report yourself!"));
                 return true;
 
-            } else if (reportedPlayer == null) {
+            } else if (reportedPlayer == null && argsNumber == 2) {
                 if (!permissionCheck(player, "report.report")) {return true;}
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                         mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
