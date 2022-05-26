@@ -204,8 +204,8 @@ public class ReportCommand implements CommandExecutor {
 
                 String staffNotificationMsg = MessageFormat.format(
                         mainClass.getConfig().getBoolean("removePluginPrefixFromChatMessages")
-                        ? "&a{0} &fjust reported &c{1} &ffor &c{2}"
-                        : "&4&l[EasyReport]&r &a{0} &fjust reported &c{1} &ffor &c{2}"
+                        ? "&a{0} &fjust reported &c{1} &ffor &c{2}."
+                        : "&4&l[EasyReport]&r &a{0} &fjust reported &c{1} &ffor &c{2}."
                         , player.getName(), reportedPlayer.getName(), reportReason);
 
                 boolean staffNotified = false;
@@ -250,7 +250,7 @@ public class ReportCommand implements CommandExecutor {
                     if (mainClass.getConfig().getBoolean("discord.enabled")) {
                         DiscordWebhookAPI.executeWebhook("REPORT",
                                 MessageFormat.format(
-                                        "{0} was just reported by {1} for {2}", reportedPlayer.getName(), player.getName(), reportReason)
+                                        "{0} was just reported by {1} for {2}.", reportedPlayer.getName(), player.getName(), reportReason)
                                 , Color.GREEN);
                     }
                     return true;
